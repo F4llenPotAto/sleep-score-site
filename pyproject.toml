@@ -1,0 +1,36 @@
+[project]
+name = "sleep-score-api"
+version = "0.0.1"
+description = "API for tracking smart ring data"
+readme = "README.md"
+classifiers = ["Private :: Do Not Upload"]
+dependencies = [
+    "flask>=3.1.2",
+]
+requires-python = ">=3.13"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "sleep-score-api"
+
+[tool.flit.sdist]
+include = [
+    "tests/",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+branch = true
+source = ["sleep-score-api", "tests"]
+
+[tool.ruff]
+src = ["src"]
